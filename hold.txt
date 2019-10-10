@@ -1,0 +1,10 @@
+dataL = np.fromstring(streamL.read(CHUNK),dtype=np.int16)
+dataR = np.fromstring(streamR.read(CHUNK),dtype=np.int16)
+
+peakL = np.abs(np.max(dataL)-np.min(dataL))/MAX_VAL
+peakR = np.abs(np.max(dataR)-np.min(dataR))/MAX_VAL
+
+stringL = "#"*int(peakL*BARS)+"-"*int(BARS-peakL*BARS)
+stringR = "#"*int(peakR*BARS)+"-"*int(BARS-peakR*BARS)
+
+print("L=[%s]\tR=[%s]"%(stringL, stringR))
