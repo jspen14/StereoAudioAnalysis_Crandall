@@ -8,3 +8,18 @@ stringL = "#"*int(peakL*BARS)+"-"*int(BARS-peakL*BARS)
 stringR = "#"*int(peakR*BARS)+"-"*int(BARS-peakR*BARS)
 
 print("L=[%s]\tR=[%s]"%(stringL, stringR))
+
+print(difference)
+  if difference > 1000:
+      if peakL > peakR:
+          print("LEFT")
+      else:
+          print("RIGHT")
+  else:
+      lrDifferences.append(difference)
+
+  if len(lrDifferences) > itersBeforeReInit*2:
+      eqConstant += computeEqConstant(lrDifferences)
+      lrDifferences = []
+      print("EQ CONSTANT 2: ", eqConstant)
+      sys.exit(1)
