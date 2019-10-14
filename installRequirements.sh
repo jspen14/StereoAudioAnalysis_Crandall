@@ -3,3 +3,4 @@
 sudo apt-get install libasound-dev
 pip install pyaudio
 pip install numpy
+pip install statistics
